@@ -6,5 +6,5 @@
 			<feGaussianBlur in="SourceGraphic" stdDeviation="2" />
 		</filter>
 	</defs>
-	<image x="25" y="25" width="640" height="426" xlink:href="http://farm5.static.flickr.com/4151/4846180160_7e32e36509_z.jpg" style="filter:url(#gaussian_blur)"/>
+	<image x="25" y="25" width="640" height="426" xlink:href="../sunset.jpg" style="filter:url(#gaussian_blur)"/>
 </svg>
