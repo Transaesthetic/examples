@@ -53,7 +53,7 @@ CanvasImage.prototype = {
 			width = this.width * 4,
 			pixel,
 			pixelValue;
-			newImage = this.context.createImageData(this.width, this.height),
+			newImage = this.context.createImageData(this.width, this.height);
 		// Loop for each blur pass.
 		for (i = 0; i < passes; i += 1) {
 			// Loop over each pixel in the image.
@@ -118,12 +118,11 @@ CanvasImage.prototype = {
 
 /**
  * Initialise an image on the page and blur it.
- *
- * @param {string} id Canvas element id.
- * @param {string} url Image URL.
  */
-var init = function (id, url) {
-	var image = new Image(),
+window.onload = function() {
+	var id = "blur",
+		url = "../sunset.jpg",
+		image = new Image(),
 		canvasImage;
 	image.onload = function () {
 		canvasImage = new CanvasImage(document.getElementById(id), this);

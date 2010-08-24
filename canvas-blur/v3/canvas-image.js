@@ -47,15 +47,14 @@ CanvasImage.prototype = {
 
 /**
  * Initialise an image on the page and blur it.
- *
- * @param {string} id Canvas element id.
- * @param {string} url Image URL.
  */
-var init = function (id, url) {
-	var canvas = document.getElementById(id),
-		image = new Image();
+window.onload = function() {
+	var id = "blur",
+		url = "../sunset.jpg",
+		image = new Image(),
+		canvasImage;
 	image.onload = function () {
-		var canvasImage = new CanvasImage(canvas, this);
+		canvasImage = new CanvasImage(document.getElementById(id), this);
 		console.time(id);
 		canvasImage.blur(4);
 		console.timeEnd(id);
