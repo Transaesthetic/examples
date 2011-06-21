@@ -140,7 +140,8 @@ def save_atom_files():
             # broadband ready.
             exchange_date = row_values[exchange_date_column]
             exchange_id = row_values[exchange_id_column]
-            exchange_name = row_values[exchange_name_column]
+            exchange_name = row_values[exchange_name_column].replace("&",
+                "&amp;")
             try:
                 exchange_date = int(exchange_date)
                 if exchange_date > 3000:  # Year.
@@ -167,8 +168,8 @@ def save_atom_files():
             "\n".join(spreadsheet_exchanges)))
         f.close()
         # Write an HTML page that can be used to view this GeoRSS on a map.
-        spreadsheet_template = template % (title, UK_MIDPOINT, slug,
-            CURRENT_TIME)
+        spreadsheet_template = template % (title, UK_MIDPOINT[0],
+            UK_MIDPOINT[1], slug, CURRENT_TIME)
         f = open("%s.html" % slug, "w")
         f.write(spreadsheet_template)
         f.close()
@@ -182,8 +183,8 @@ def save_atom_files():
     f.close()
     # And lastly, write a final HTML file that will display all the data on one
     # map.
-    all_exchange_template = template % (ALL_DATA_HTML_TITLE, UK_MIDPOINT,
-        "all", CURRENT_TIME)
+    all_exchange_template = template % (ALL_DATA_HTML_TITLE, UK_MIDPOINT[0],
+        UK_MIDPOINT[1], "all", CURRENT_TIME)
     f = open("all.html", "w")
     f.write(all_exchange_template)
     f.close()

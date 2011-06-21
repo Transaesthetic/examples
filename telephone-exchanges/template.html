@@ -15,14 +15,14 @@
 		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 		<script type="text/javascript">
 			function initialise() {
-				var myLatlng = new google.maps.LatLng(%s);
+				var myLatlng = new google.maps.LatLng(%s, %s);
 				var myOptions = {
 					zoom: 6,
 					center: myLatlng,
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 				}
 				var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-				var georssLayer = new google.maps.KmlLayer("%s.atom");
+				var georssLayer = new google.maps.KmlLayer(unescape(window.location.href.substring(0, (window.location.href.lastIndexOf("/")) + 1)) + "%s.atom");
 				georssLayer.setMap(map);
 			}
 		</script>
