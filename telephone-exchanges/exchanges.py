@@ -148,6 +148,8 @@ def save_atom_files():
                     exchange_date = (datetime.date(1899, 12, 30) +
                         datetime.timedelta(days=exchange_date)).strftime(
                         "%b %Y")
+                # Add the date into the exchange name.
+                exchange_name += " (%s)" % exchange_date
             except ValueError:
                 pass  # "Now".
             # Get the boundaries of the exchange's coverage and covert them
