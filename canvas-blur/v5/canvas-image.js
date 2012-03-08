@@ -26,10 +26,14 @@ CanvasImage.prototype = {
 		var x, y;
 		this.context.globalAlpha = 0.5; // Higher alpha made it more smooth
 		// Add blur layers by strength to x and y
-		for (y = -strength; y <= strength; y += 1) {
-			for (x = -strength; x <= strength; x += 1) {
-				// Apply layer
+		// 1.9 made it a bit faster without noticeable quality loss
+		for (y = -strength; y <= strength; y += 1.9) {
+			for (x = -strength; x <= strength; x += 1.9) {
+				// Apply layers
 				this.context.drawImage(this.element, x, y);
+				// Add an extra, prevents it from rendering lines
+				// on top of the images (does makes it slower though)
+				this.context.drawImage(this.element, -x, -y);
 			}
 		}
 		this.context.globalAlpha = 1.0;
