@@ -50,29 +50,17 @@ window.onload = function() {
 		try{console.time('blur_1');}catch(err){}
 		canvasImage.blur(1);
 		try{console.timeEnd('blur_1');}catch(err){}
-	};
-	image.src = url;
 
-	image = new Image();
-	image.onload = function () {
 		canvasImage = new CanvasImage(document.getElementById('blur_2'), this);
 		try{console.time('blur_2');}catch(err){}
 		canvasImage.blur(2);
 		try{console.timeEnd('blur_2');}catch(err){}
-	};
-	image.src = url;
 
-	image = new Image();
-	image.onload = function () {
 		canvasImage = new CanvasImage(document.getElementById('blur_3'), this);
 		try{console.time('blur_3');}catch(err){}
 		canvasImage.blur(3);
 		try{console.timeEnd('blur_3');}catch(err){}
-	};
-	image.src = url;
 
-	image = new Image();
-	image.onload = function () {
 		canvasImage = new CanvasImage(document.getElementById('blur_4'), this);
 		try{console.time('blur_4');}catch(err){}
 		canvasImage.blur(4);
