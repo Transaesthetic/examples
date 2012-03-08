@@ -24,7 +24,7 @@ CanvasImage.prototype = {
 	 */
 	blur: function (strength) {
 		var x, y;
-		this.context.globalAlpha = 0.5; // Higher alpha made it more smooth
+		this.context.globalAlpha = .5; // Higher alpha made it more smooth
 		// Add blur layers by strength to x and y
 		for (y = -strength; y <= strength; y += 1) {
 			for (x = -strength; x <= strength; x += 1) {
@@ -50,32 +50,20 @@ window.onload = function() {
 		try{console.time('blur_1');}catch(err){}
 		canvasImage.blur(1);
 		try{console.timeEnd('blur_1');}catch(err){}
-	};
-	image.src = url;
 
-	image = new Image();
-	image.onload = function () {
 		canvasImage = new CanvasImage(document.getElementById('blur_2'), this);
 		try{console.time('blur_2');}catch(err){}
 		canvasImage.blur(2);
 		try{console.timeEnd('blur_2');}catch(err){}
-	};
-	image.src = url;
 
-	image = new Image();
-	image.onload = function () {
 		canvasImage = new CanvasImage(document.getElementById('blur_3'), this);
 		try{console.time('blur_3');}catch(err){}
 		canvasImage.blur(3);
 		try{console.timeEnd('blur_3');}catch(err){}
-	};
-	image.src = url;
 
-	image = new Image();
-	image.onload = function () {
 		canvasImage = new CanvasImage(document.getElementById('blur_4'), this);
 		try{console.time('blur_4');}catch(err){}
-		canvasImage.blur(4);
+		canvasImage.blur(6);
 		try{console.timeEnd('blur_4');}catch(err){}
 	};
 	image.src = url;
