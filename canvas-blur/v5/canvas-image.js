@@ -24,7 +24,7 @@ CanvasImage.prototype = {
 	 */
 	blur: function (strength) {
 		var x, y;
-		this.context.globalAlpha = 0.5; // Higher alpha made it more smooth
+		this.context.globalAlpha = .5; // Higher alpha made it more smooth
 		// Add blur layers by strength to x and y
 		for (y = -strength; y <= strength; y += 1) {
 			for (x = -strength; x <= strength; x += 1) {
@@ -63,7 +63,7 @@ window.onload = function() {
 
 		canvasImage = new CanvasImage(document.getElementById('blur_4'), this);
 		try{console.time('blur_4');}catch(err){}
-		canvasImage.blur(4);
+		canvasImage.blur(6);
 		try{console.timeEnd('blur_4');}catch(err){}
 	};
 	image.src = url;
