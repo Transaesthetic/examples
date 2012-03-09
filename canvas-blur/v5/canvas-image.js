@@ -25,12 +25,12 @@ CanvasImage.prototype = {
 	blur: function (strength) {
 		this.context.globalAlpha = 0.5; // Higher alpha made it more smooth
 		// Add blur layers by strength to x and y
-		// 1.9 made it a bit faster without noticeable quality loss
+		// 2 made it a bit faster without noticeable quality loss
 		for (var y = -strength; y <= strength; y += 2) {
 			for (var x = -strength; x <= strength; x += 2) {
 				// Apply layers
 				this.context.drawImage(this.element, x, y);
-				// Add an extra, prevents it from rendering lines
+				// Add an extra layer, prevents it from rendering lines
 				// on top of the images (does makes it slower though)
 				if (x>=0 && y>=0) {
 					this.context.drawImage(this.element, -(x-1), -(y-1));
